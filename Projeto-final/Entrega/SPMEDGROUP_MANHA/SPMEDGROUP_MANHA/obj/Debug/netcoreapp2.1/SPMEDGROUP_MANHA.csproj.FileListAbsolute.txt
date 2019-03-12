@@ -1,0 +1,14 @@
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\bin\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.deps.json
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\bin\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.runtimeconfig.json
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\bin\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.runtimeconfig.dev.json
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\bin\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.dll
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.csprojAssemblyReference.cache
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.csproj.CoreCompileInputs.cache
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.RazorAssemblyInfo.cache
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.RazorAssemblyInfo.cs
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.AssemblyInfoInputs.cache
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.AssemblyInfo.cs
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.RazorTargetAssemblyInfo.cache
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\bin\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.pdb
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.dll
+C:\Users\22972804830\Documents\projetos\Senai_Tecnico\Sprint2 - API\2019-03-07\SPMEDGROUP_MANHA\SPMEDGROUP_MANHA\obj\Debug\netcoreapp2.1\SPMEDGROUP_MANHA.pdb
