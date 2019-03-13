@@ -57,7 +57,7 @@ INSERT INTO USUARIOS		(NOME, EMAIL, SENHA,
 						, ('MARIANA', 'mariana@outlook.com', 'MARIANA',
 						   '545662668', '13771913039', '', '2018-03-05', 2
 						   , 'Av. Barão Limeira, 532, São Paulo, SP'),
-						   ('daichictellus',' ctellus, ') 
+						   ('Esqelectellus','RemoveEs') 
 
 
 SELECT * FROM USUARIOS

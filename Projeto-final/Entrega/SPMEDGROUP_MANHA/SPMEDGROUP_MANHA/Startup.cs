@@ -2,11 +2,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-
-
-// Swagger
-//using Swashbuckle.AspNetCore;
-//using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
 
 namespace SPMEDGROUP_MANHA
 {
@@ -16,6 +14,8 @@ namespace SPMEDGROUP_MANHA
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // MVC section
             services.AddMvc()
                 .AddJsonOptions(options =>
                 {
@@ -26,77 +26,12 @@ namespace SPMEDGROUP_MANHA
                 })
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 
-
-
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
+            // Token JWT section
+            services.AddAuthentication(options =>
             {
-                app.UseDeveloperExceptionPage();
+                options.DefaultAuthenticateScheme = "JwtBearer";
+                options.DefaultChallengeScheme = "JwtBearer";
             }
-
-            app.UseMvc();
-            app.UseStaticFiles();
-        }
-    }
-}
-
-// Scaffold-DbContext "Data Source=.\SqlExpress;Initial Catalog=SPMEDGROUP;User Id=sa;pwd=132;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Domains -ContextDir Contexts -Context SPMEDGROUPContext
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-
-// Swagger
-using Swashbuckle.AspNetCore;
-using Swashbuckle.AspNetCore.Swagger;
-
-namespace Senai.SPMedicalGroup.WebAPI
-{
-public class Startup
-{
-    // This method gets called by the runtime. Use this method to add services to the container.
-    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddMvc()
-            .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1) // Seleciona a versão do MVC.
-            .AddJsonOptions(options =>
-            {
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // Ignora os loops;
-                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // Ignora os nulos;
-            });
-
-        //Configurando a autenticação/jwt/token
-        services.AddAuthentication(options =>
-        {
-            options.DefaultAuthenticateScheme = "JwtBearer";
-            options.DefaultChallengeScheme = "JwtBearer";
-        }
             ).AddJwtBearer("JwtBearer", options =>
             {
                 options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
@@ -116,40 +51,35 @@ public class Startup
                     ValidAudience = "SpMedGroup.WebApi"
                 };
             });
-
-        // Register the Swagger generator, defining 1 or more Swagger documents
-        services.AddSwaggerGen(c =>
-        {
-            c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
-        });
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
+                    
+            // Swagger section
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
         }
 
-        // Enable middleware to serve generated Swagger as a JSON endpoint.
-        app.UseSwagger();
-
-        // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
-        // specifying the Swagger JSON endpoint.
-        app.UseSwaggerUI(c =>
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            //c.RoutePrefix = string.Empty;
-        });
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
-        app.UseAuthentication();
+            app.UseSwagger();
 
-        app.UseMvc();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
+            app.UseAuthentication();
+            app.UseMvc();
+            app.UseStaticFiles();
+        }
     }
 }
-}
 
-
-*/
-
+// Scaffold-DbContext "Data Source=.\SqlExpress;Initial Catalog=SPMEDGROUP;User Id=sa;pwd=132;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Domains -ContextDir Contexts -Context SPMEDGROUPContext
+          

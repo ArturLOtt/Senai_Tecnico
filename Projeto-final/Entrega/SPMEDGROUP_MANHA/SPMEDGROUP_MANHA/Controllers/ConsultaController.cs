@@ -57,7 +57,8 @@ namespace SPMEDGROUP_MANHA.Controllers
             }
         }
 
-        [HttpGet("consulta de Paciente")]
+        [HttpGet("{Id}")]
+        //[HttpGet("Medico/{Id}")]
         public IActionResult GetDoPaciente()
         {
             try
@@ -96,10 +97,8 @@ namespace SPMEDGROUP_MANHA.Controllers
         {
             try
             {
-
                 using (SPMEDGROUPContext ctx = new SPMEDGROUPContext())
                 {
-
                     Consulta seConsultaExiste = ctx.Consulta.Find(consulta.Id);
 
                     if (seConsultaExiste == null)

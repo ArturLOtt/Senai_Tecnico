@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SPMEDGROUP_MANHA.Domains;
 using SPMEDGROUP_MANHA.Interfaces;
 using SPMEDGROUP_MANHA.Repositories;
@@ -20,7 +21,7 @@ namespace SPMEDGROUP_MANHA.Controllers
 
         public UsuarioController() => usuarioRepository = new UsuarioRepository();
 
-        //[Authorize(Roles = "ADMINISTRADOR")]
+        [Authorize(Roles = "3")]
         [HttpPost]
         public IActionResult Post(Usuarios usuario)
         {
