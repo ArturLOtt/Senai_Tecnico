@@ -47,10 +47,11 @@ namespace SPMEDGROUP_MANHA.Repositories
 
         public void ModificarDescricao(Consulta consulta)
         {
+
             using (SPMEDGROUPContext ctx = new SPMEDGROUPContext())
             {
-                ctx.Consulta.Update(consulta);
-                ctx.SaveChanges();
+
+                
             }
         }
     }

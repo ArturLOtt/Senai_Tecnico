@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SPMEDGROUP_MANHA.Domains;
 using SPMEDGROUP_MANHA.Interfaces;
@@ -11,13 +12,13 @@ using System.Threading.Tasks;
 namespace SPMEDGROUP_MANHA.Controllers
 {
 
+    [ApiController]
     [Produces("application/json")]
     [Route("api/[controller]")]
-    [ApiController]
     public class ConsultaController : ControllerBase
     {
 
-        private IConsultaRepository consultaRepository { get; set; }
+        private IConsultaRepository consultaRepository;
 
         public ConsultaController() => consultaRepository = new ConsultaRepository();
 
@@ -39,7 +40,7 @@ namespace SPMEDGROUP_MANHA.Controllers
                 return BadRequest();
             }
         }
-                                   
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -74,7 +75,7 @@ namespace SPMEDGROUP_MANHA.Controllers
                 return BadRequest();
             }
         }
-               
+
         [HttpGet("consulta pelo Medico")]
         public IActionResult GetDoMedico()
         {
@@ -93,106 +94,30 @@ namespace SPMEDGROUP_MANHA.Controllers
         }
 
         [HttpPut]
+        //[Authorize(Roles = "3, 1")]
         public IActionResult Put(Consulta consulta)
         {
+
             try
             {
                 using (SPMEDGROUPContext ctx = new SPMEDGROUPContext())
                 {
-                    Consulta seConsultaExiste = ctx.Consulta.Find(consulta.Id);
 
-                    if (seConsultaExiste == null)
+                    using (var context = new SPMEDGROUPContext())
                     {
-                        return NotFound();
+                        var std = context.Consulta.Find(consulta.Id);
+                        std.Descricao = consulta.Descricao;
+                        context.SaveChanges();
                     }
-
-                    seConsultaExiste.Descricao = consulta.Descricao;
-                    ctx.Consulta.Update(consulta);
-                    // ctx.Estudios.Attach(estudio);
-                    ctx.SaveChanges();
                 }
                 return Ok();
             }
-            catch
+            catch (Exception exc)
             {
-                return BadRequest();
+                return BadRequest(exc.Message);
             }
         }
+            
 
-
-
-
-        /*
-         
-         
-         
-         
-         
-       
-        
-
-        
-
-        [HttpPut]
-        public IActionResult Put(Estudios estudio)
-        {
-            try
-            {
-
-                using (InLockContext ctx = new InLockContext())
-                {
-
-                    Estudios estudioExiste = ctx.Estudios.Find(estudio.Estudioid);
-
-                    if (estudioExiste == null)
-                    {
-                        return NotFound();
-                    }
-
-                    estudioExiste.Nomeestudio = estudio.Nomeestudio;
-                     ctx.Estudios.Update(estudio);
-                    // ctx.Estudios.Attach(estudio);
-                    ctx.SaveChanges();
-                }
-                return Ok();
-            }
-            catch
-            {
-                return BadRequest();
-            }
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            try
-            {
-                using (InLockContext ctx = new InLockContext())
-                {
-
-                    Estudios estudioExiste = ctx.Estudios.Find(id);
-
-                    if (estudioExiste == null)
-                    {
-                        return NotFound();
-                    }
-
-                    ctx.Estudios.Remove(ctx.Estudios.Find(id));
-                    ctx.SaveChanges();
-                }
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
-
-        }
-
-                 
-         
-         */
-
-
-    }
+/**/}
 }

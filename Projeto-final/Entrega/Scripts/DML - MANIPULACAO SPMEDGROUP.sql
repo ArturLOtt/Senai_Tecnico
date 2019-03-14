@@ -56,9 +56,18 @@ INSERT INTO USUARIOS		(NOME, EMAIL, SENHA,
 						   , 'Av. Barão Limeira, 532, São Paulo, SP')
 						, ('MARIANA', 'mariana@outlook.com', 'MARIANA',
 						   '545662668', '13771913039', '', '2018-03-05', 2
-						   , 'Av. Barão Limeira, 532, São Paulo, SP'),
-						   ('Esqelectellus','RemoveEs') 
+						   , 'Av. Barão Limeira, 532, São Paulo, SP') 
 
+--INSERT INTO USUARIOS		(NOME, EMAIL, SENHA,
+--							 RG, CPF, TELEFONE_CONTATO, DATA_NASCIMENTO, ID_TIPO_USUARIO,
+--							 ENDERECO)
+--					VALUES ('Esqelectellus', 'remove3E@email.com.br', 'remove3E',
+--					       '333333', '333333', '333333', '2019-03-14', 1
+--						   , 'Av. Barão Limeira, 532, São Paulo, SP')
+
+UPDATE USUARIOS
+SET NOME = 'Sqelectellus', SENHA = 'adme', EMAIL = 'adme@adme.com', ID_TIPO_USUARIO= '3'
+WHERE ID = 29;
 
 SELECT * FROM USUARIOS
 
